@@ -56,6 +56,44 @@ public class JeuMystere {
         } while (end == false);
     }
 
+	public void niveauDifficile(int min, int max) {
+        Scanner scInt = new Scanner(System.in);
+        Scanner scChar = new Scanner(System.in);
+        boolean end = false, trouveNum = false, trouveChar = false;
+        int nbrTentEf = 0;
+        int numTent, numMystere;
+        String charTent, charMystere;
+        /*max+1 pour que le mystere soit compris entre min et max et non pas min et max-1*/
+        numMystere = (int) (Math.random() * (max - min + 1)) + min;
+        charMystere = "" + (char) (Math.random() * ((int) 'Z' - (int) 'A' + 1) + (int) 'A');
+        do {
+            nbrTentEf++;
+            System.out.println("Donner le nombre mystere entre " + min+ " et " + max);
+            numTent = scInt.nextInt();
+            do {
+                System.out.println("Donner le caractere mystere entre A et Z");
+                charTent = scChar.nextLine().toUpperCase();
+            } while (charTent.length() != 1);
+            if (nbrTentMax - nbrTentEf == 0) {
+                System.out.println("Dommage! Vous avez perdu, le nombre mystere est: " + numMystere
+                        + " et le caractere mystere est: " + charMystere);
+                end = true;
+            } else {
+                if (trouveNum == false) {
+                    if (numTent == numMystere) {
+                        System.out.println("Le nombre est correct: *"+numTent);
+                        trouveNum = true;
+                    } else if (numTent < numMystere) {
+                        System.out.println("C'est plus pour le nombre ");
+                    } else if (numTent > numMystere) {
+                        System.out.println("C'est moins pour le nombre ");
+                    }
+                }
+                
+        } while (end==false);
+
+    }
+
 
     public static void main(String[] args) {
           final int nFacileDifficileMax = 100;
