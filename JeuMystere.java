@@ -89,6 +89,23 @@ public class JeuMystere {
                         System.out.println("C'est moins pour le nombre ");
                     }
                 }
+     if(trouveChar==false){
+                    if (charTent.equals(charMystere)) {
+                        System.out.println("Le caractÃ©re est correct: *"+charTent);
+                        trouveChar = true;
+                    } else if ( (int)charTent.charAt(0) < (int)charMystere.charAt(0)) {
+                        System.out.println("Le caractere est apres");
+                    } else if ( (int)charTent.charAt(0) > (int)charMystere.charAt(0)) {
+                        System.out.println("Le caractere est avant");
+                    }
+                }
+                if(trouveChar==true && trouveNum==true){
+                    end=true;
+                    System.out.println("Bravo! Vous avez gagner au bout de " + nbrTentEf + " tentatives");
+                }
+                else
+                    System.out.println("Il vous reste " + (nbrTentMax - nbrTentEf) + " tentatives");
+            }
                 
         } while (end==false);
 
