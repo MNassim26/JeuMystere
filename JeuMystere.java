@@ -58,7 +58,26 @@ public class JeuMystere {
 
 
     public static void main(String[] args) {
-        
+          final int nFacileDifficileMax = 100;
+        final int nMoyenMax = 10000;
+        final int nDifficileMin = 10;
+        JeuMystere jeu = new JeuMystere();
+        System.out.println("-------------- Bienvenue au jeu du mystere --------------");
+        jeu.niveau = jeu.choisirNiveau();
+        if (jeu.niveau == 1) {
+            System.out.println("Niveau facile, le mystere est un nombre entre 0 est 100");
+            jeu.nbrTentMax = 15;
+            jeu.niveauFacileMoyen(nFacileDifficileMax);
+        } else if (jeu.niveau == 2) {
+            System.out.println("Niveau Moyen, le mystere est un nombre entre 0 est 10000");
+            jeu.nbrTentMax = 10;
+            jeu.niveauFacileMoyen(nMoyenMax);
+        } else if (jeu.niveau == 3) {
+            /*Niveau 3*/
+            System.out.println("Niveau Difficile, le mystere est un nombre entre 10 est 100");
+            jeu.nbrTentMax = 10;
+            jeu.niveauDifficile(nDifficileMin, nFacileDifficileMax);
+        }
     }
 
 }
